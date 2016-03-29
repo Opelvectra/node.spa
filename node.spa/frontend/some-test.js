@@ -1,0 +1,1 @@
+alert("I am test file, don't copy me into static folder!!!");
