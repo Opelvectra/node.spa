@@ -6,19 +6,23 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-express-server');
 	
-	grunt.registerTask('buildTestAndRun', ['copy:useExternalFrontend', 'express:dev']);
-	grunt.registerTask('default', ['buildTestAndRun', 'watch:frontendChanges']);
+	grunt.registerTask('buildTestAndRun', ['express:dev']);
+	grunt.registerTask('default', ['buildTestAndRun', 'run-frontend']);
+	
+	grunt.registerTask('run-frontend', function () {
+	    var done = this.async();
+	    grunt.util.spawn({
+	        grunt: true,
+	        args: ['watch'],
+	        opts: {
+	            cwd: '../frontend'
+	        }
+	    }, function (err, result, code) {
+	        //done();
+	    });
+	});
 	
 	grunt.initConfig({
-		copy: {
-			useExternalFrontend: {
-		    expand: true,
-		    // full path to front-end build
-		    cwd: '../frontend/build',
-		    src: ['**'],
-		    dest: 'public/'
-		  }
-		},
 		express: {
 	    options: {
 	    	port: appConfig['dev'].port
@@ -28,12 +32,6 @@ module.exports = function(grunt) {
 	        script: 'index.js'
 	      }
 	    }
-	  },
-		watch: {
-		  frontendChanges: {
-		    files: ['../frontend/**'],
-		    tasks: ['copy:useExternalFrontend']		    
-		  }
-		}
+	  }
 	});
 };

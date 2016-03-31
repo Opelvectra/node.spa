@@ -1,4 +1,4 @@
-var express, app, server;
+var express, app, server, path = require('path');
 
 module.exports = function(expressFramework){
 	express = expressFramework;
@@ -40,12 +40,12 @@ function setControllers() {
 
 	app.get('/*', function (req, res, next) {
 	  console.log('Returns base template for all GET requests');
-	  res.sendFile(__dirname + '/public/index.html');
+	  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
 	});
 }
 
 function setStaicFolders(){
-	app.use('/s', express['static']('public'));
+	app.use('/s', express['static']('../frontend/build'));
 }
 
 function setViewEngine(){
