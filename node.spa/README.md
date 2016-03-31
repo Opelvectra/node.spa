@@ -11,7 +11,7 @@ bower install </code>
 
 <code> npm install </code>
 
-**To build and run project run from 'node.spa/server' folder: **  
+**To build and run project run from 'node.spa/server' folder:**  
 
 <code> grunt </code>
 
