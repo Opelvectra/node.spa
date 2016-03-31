@@ -1,20 +1,20 @@
-## Quick Start
+## Quick Start 
 
-Install Node.js and then run:
+**Install Node.js and then run to build dependencies:**
 
-1) from node.spa/frontend folder:
-npm install
-bower install
-grunt watch
+1) from 'node.spa/frontend' folder:  
 
-2) from node.spa/server folder:
-npm install
-grunt
+<code> npm install   <br>
+bower install </code>
+
+2) from 'node.spa/server' folder:  
+
+<code> npm install </code>
+
+**To build and run project run from 'node.spa/server' folder: **  
+
+<code> grunt </code>
 
 Finally, open `http://localhost:8010/` in your browser.
 
-Happy hacking!
-To run project go to /server folder and use:
-
-1) npm install
-2) grunt
+That's all folks!
