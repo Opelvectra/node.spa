@@ -18,7 +18,7 @@ module.exports = function(expressFramework){
 
 function constructor(onStart){
 	app = express();
-	app.disable('x-powered-by'); // <= removes ExpressJS header
+	app.disable('x-powered-by'); // removes ExpressJS header
 	setViewEngine();
 	setStaicFolders();
 	setControllers();
